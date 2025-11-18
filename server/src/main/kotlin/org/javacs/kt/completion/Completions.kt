@@ -8,6 +8,7 @@ import org.eclipse.lsp4j.CompletionList
 import org.eclipse.lsp4j.TextEdit
 import org.eclipse.lsp4j.Range
 import org.eclipse.lsp4j.Position
+import org.eclipse.lsp4j.InsertTextFormat.Snippet
 import org.javacs.kt.CompiledFile
 import org.javacs.kt.LOG
 import org.javacs.kt.CompletionConfiguration
@@ -198,7 +199,7 @@ private fun completionItem(d: DeclarationDescriptor, surroundingElement: KtEleme
     }
 
     val matchCall = callPattern.matchEntire(result.insertText)
-    if (file.lineAfter(surroundingElement.endOffset).startsWith("(") && matchCall != null) {
+    if (result.insertTextFormat != Snippet && file.lineAfter(surroundingElement.endOffset).startsWith("(") && matchCall != null) {
         result.insertText = matchCall.groups[1]!!.value
     }
 

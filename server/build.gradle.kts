@@ -30,15 +30,9 @@ repositories {
 }
 
 dependencies {
-    // dependencies are constrained to versions defined
-    // in /platform/build.gradle.kts
-    implementation(platform(project(":platform")))
-    annotationProcessor(platform(project(":platform")))
-
-    implementation(project(":shared"))
-
     implementation(libs.org.eclipse.lsp4j.lsp4j)
     implementation(libs.org.eclipse.lsp4j.jsonrpc)
+    implementation(kotlin("stdlib"))
 
     implementation(kotlin("compiler"))
     implementation(kotlin("scripting-compiler"))
@@ -52,6 +46,7 @@ dependencies {
     implementation(libs.com.h2database.h2)
     implementation(libs.com.github.fwcd.ktfmt)
     implementation(libs.com.beust.jcommander)
+    implementation(libs.com.google.guava.guava)
     implementation(libs.org.xerial.sqlite.jdbc)
 
     testImplementation(libs.hamcrest.all)

@@ -40,7 +40,7 @@ The project uses the internal APIs of the [Kotlin compiler](https://github.com/J
 
 ### Figuring out the dependencies
 
-Dependencies are determined by the [DefaultClassPathResolver.kt](shared/src/main/kotlin/org/javacs/kt/classpath/DefaultClassPathResolver.kt), which invokes Maven or Gradle to get a list of classpath JARs. Alternatively, projects can also 'manually' provide a list of dependencies through a shell script, located either at `[project root]/kls-classpath` or `[config root]/kotlin-language-server/classpath`, which outputs a list of JARs. Depending on your platform, the scripts also can be suffixed with `.{sh,bat,cmd}`.
+Dependencies are determined by the [DefaultClassPathResolver.kt](server/src/main/kotlin/org/javacs/kt/classpath/DefaultClassPathResolver.kt), which invokes Maven or Gradle to get a list of classpath JARs. Alternatively, projects can also 'manually' provide a list of dependencies through a shell script, located either at `[project root]/kls-classpath` or `[config root]/kotlin-language-server/classpath`, which outputs a list of JARs. Depending on your platform, the scripts also can be suffixed with `.{sh,bat,cmd}`.
 
 * Example of the `~/.config/kotlin-language-server/classpath` on Linux:
 ```bash
@@ -78,8 +78,7 @@ There is an extensive suite of behavioral [tests](server/src/test/kotlin/org/jav
 
 | Name | Description |
 | ---- | ----------- |
-| server | The language server executable |
-| shared | Classpath resolution and utilities |
+| server | Language server executable, classpath resolution, and utilities |
 
 ## Scripts
 
